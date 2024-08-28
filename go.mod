@@ -1,6 +1,7 @@
 module github.com/crc-org/crc/v2
 
 go 1.21.0
+toolchain go1.22.5
 
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.7
@@ -30,7 +31,7 @@ require (
 	github.com/kofalt/go-memoize v0.0.0-20220914132407-0b5d6a304579
 	github.com/mattn/go-colorable v0.1.13
 	github.com/mdlayher/vsock v1.2.1
-	github.com/onsi/ginkgo/v2 v2.20.0
+	github.com/onsi/ginkgo/v2 v2.20.2
 	github.com/onsi/gomega v1.34.1
 	github.com/opencontainers/image-spec v1.1.0
 	github.com/openshift/api v0.0.0-20240517002838-931fa9860c01
@@ -118,7 +119,7 @@ require (
 	github.com/google/go-containerregistry v0.20.0 // indirect
 	github.com/google/gofuzz v1.2.0 // indirect
 	github.com/google/gopacket v1.1.19 // indirect
-	github.com/google/pprof v0.0.0-20240727154555-813a5fbdbec8 // indirect
+	github.com/google/pprof v0.0.0-20240827171923-fa2c70bbbfe5 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/mux v1.8.1 // indirect
 	github.com/hashicorp/go-immutable-radix v1.3.1 // indirect
