@@ -97,6 +97,10 @@ func ValidateBundle(bundlePath string, preset crcpreset.Preset) error {
 		}
 		return ValidateBundlePath(bundlePath, preset)
 	}
+	if err = BundleMismatchWithPreset(preset, bundleMetadata); err != nil {
+		logging.Fatal(err.Error())
+		return err
+	}
 	bundleMismatchWarning(bundleMetadata.GetBundleName(), preset)
 	/* 'bundle' is already unpacked in ~/.crc/cache */
 	return nil
@@ -115,6 +119,13 @@ func bundleMismatchWarning(userProvidedBundle string, preset crcpreset.Preset) {
 			logging.Warnf("Using %s bundle, but %s is expected for this release", userProvidedBundle, constants.GetDefaultBundle(preset))
 		}
 	}
+}
+
+func BundleMismatchWithPreset(preset crcpreset.Preset, bundleMetadata *bundle.CrcBundleInfo) error {
+	if preset != bundleMetadata.GetBundleType() {
+		return fmt.Errorf("Preset %s is used but bundle is provided for %s preset", preset, bundleMetadata.GetBundleType())
+	}
+	return nil
 }
 
 // ValidateIPAddress checks if provided IP is valid
